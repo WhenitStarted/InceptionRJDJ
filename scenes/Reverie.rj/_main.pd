@@ -1,0 +1,18 @@
+#N canvas 156 51 877 627 10;
+#X declare -path .;
+#X declare -path abs;
+#X declare -path samples;
+#X text 26 57 System;
+#X text 26 165 Reality Effects;
+#X text 25 225 Effects;
+#X obj 28 97 io \$0;
+#N canvas 0 22 450 300 credits 0;
+#X restore 28 31 pd credits;
+#X obj 28 245 reverbfx \$0;
+#X obj 28 265 delayfx \$0;
+#X obj 28 77 init \$0;
+#X obj 28 185 rfx_delay \$0;
+#X obj 25 333 samplebank \$0;
+#X obj 29 300 music \$0;
+#X obj 27 117 timebase \$0 100;
+#X obj 27 137 simple_controller \$0;

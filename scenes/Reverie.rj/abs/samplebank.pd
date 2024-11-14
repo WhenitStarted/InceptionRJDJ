@@ -1,0 +1,6 @@
+#N canvas 80 156 834 613 10;
+#X obj 43 144 u_samplebank2 \$1-wavesstart ../samples/wavesstart.wav
+;
+#X obj 45 169 u_samplebank2 \$1-wavesloop ../samples/wavesloop.wav
+;
+#X obj 44 196 u_samplebank2 \$1-strings ../samples/strings.wav;
