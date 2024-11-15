@@ -1,0 +1,12 @@
+#N canvas 0 22 398 255 10;
+#X obj 89 45 catch~ \$1-DELAY;
+#X obj 89 157 throw~ \$1-LEFT;
+#X obj 199 157 throw~ \$1-RIGHT;
+#X obj 89 86 delwrite~ \$1-delayfx 200;
+#X obj 89 107 delread~ \$1-delayfx 200;
+#X obj 39 98 *~ 0.3;
+#X connect 0 0 3 0;
+#X connect 4 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;

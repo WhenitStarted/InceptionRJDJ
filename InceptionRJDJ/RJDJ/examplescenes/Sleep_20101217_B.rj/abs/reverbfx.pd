@@ -1,0 +1,136 @@
+#N canvas 0 22 979 477 10;
+#X obj 78 -14 catch~ \$1-REVERB;
+#X obj 76 314 throw~ \$1-LEFT;
+#X obj 184 314 throw~ \$1-RIGHT;
+#N canvas 15 98 622 480 presets 0;
+#X obj 40 26 inlet;
+#X msg 43 122 \; param1 0 \; param2 22050 \; param3 22050 \; param4
+0.5 \; param5 0.75 \; param6 0.625 \; param7 0.7 \; param8 0.5 \; param9
+0.53761 \;;
+#X msg 116 307 \; param1 0 \; param2 10000 \; param3 4637 \; param4
+0.98 \; param5 0.685 \; param6 0.779 \; param7 0.74 \; param8 0.68
+\; param9 0.53761 \;;
+#X msg 199 123 \; param1 0 \; param2 10000 \; param3 4637 \; param4
+0.98 \; param5 0.685 \; param6 0.779 \; param7 0.74 \; param8 0.68
+\; param9 0 \;;
+#X msg 278 304 \; param1 10 \; param2 10000 \; param3 4637 \; param4
+0.99 \; param5 0.685 \; param6 0.779 \; param7 0.889 \; param8 0.84
+\; param9 0.53761 \;;
+#X msg 359 131 \; param1 10 \; param2 10000 \; param3 4637 \; param4
+0.99 \; param5 0.685 \; param6 0.779 \; param7 0.889 \; param8 0.84
+\; param9 0 \;;
+#X msg 443 303 \; param1 216.535 \; param2 22050 \; param3 22050 \;
+param4 0.677165 \; param5 0.850394 \; param6 0.92126 \; param7 0.80315
+\; param8 0.818898 \; param9 0.11811 \;;
+#X obj 39 70 route default large large_noexcursion huge huge_noexcursion
+tadada;
+#X connect 0 0 7 0;
+#X connect 7 0 1 0;
+#X connect 7 1 2 0;
+#X connect 7 2 3 0;
+#X connect 7 3 4 0;
+#X connect 7 4 5 0;
+#X connect 7 5 6 0;
+#X restore 497 84 pd presets;
+#X msg 497 62 huge;
+#N canvas 890 72 280 336 edit_params 0;
+#X obj 25 92 hsl 128 15 220.5 22050 1 0 param3 param3 damping -2 -8
+0 10 -262144 -1 -1 8400 0;
+#X floatatom 157 91 10 0 0 0 - param3 damping;
+#X obj 25 123 hsl 128 15 0 1 0 0 param4 param4 decay -2 -8 0 10 -262144
+-1 -1 12573 0;
+#X floatatom 157 122 10 0 0 0 - param4 decay;
+#X obj 25 28 hsl 128 15 0 250 0 0 param1 param1 predelay -2 -8 0 10
+-262144 -1 -1 508 0;
+#X floatatom 157 27 10 0 0 0 - param1 predelay;
+#X obj 25 60 hsl 128 15 220.5 22050 1 0 param2 param2 bandwidth -2
+-8 0 10 -262144 -1 -1 10519 0;
+#X floatatom 157 59 10 0 0 0 - param2 bandwidth;
+#X obj 24 191 hsl 128 15 0 1 0 0 param6 param6 input_diffusion_2 -2
+-8 0 10 -262144 -1 -1 9893 0;
+#X floatatom 156 190 10 0 0 0 - param6 input_diffusion2;
+#X obj 25 156 hsl 128 15 0 1 0 0 param5 param5 input_diffusion_1 -2
+-8 0 10 -262144 -1 -1 8700 0;
+#X floatatom 157 155 10 0 0 0 - param5 input_diffusion1;
+#X obj 23 255 hsl 128 15 0 1 0 0 param8 param8 decay_diffusion_2 -2
+-8 0 10 -262144 -1 -1 10668 0;
+#X floatatom 155 254 10 0 0 0 - param8 decay_diffusion2;
+#X obj 24 222 hsl 128 15 0 1 0 0 param7 param7 decay_diffusion_1 -2
+-8 0 10 -262144 -1 -1 11290 0;
+#X floatatom 156 221 10 0 0 0 - param7 decay_diffusion1;
+#X obj 23 287 hsl 128 15 0 5 0 0 param9 param9 excursion -2 -8 0 10
+-262144 -1 -1 1366 0;
+#X floatatom 155 286 10 0 0 0 - param9 excursion;
+#X restore 490 152 pd edit_params;
+#N canvas 66 24 387 608 receive_params 0;
+#X msg 58 293 input_diffusion1 \$1;
+#X msg 70 349 input_diffusion2 \$1;
+#X msg 78 410 decay_diffusion1 \$1;
+#X msg 87 469 decay_diffusion2 \$1;
+#X msg 33 75 predelay \$1;
+#X msg 33 132 bandwidth \$1;
+#X msg 33 183 damping \$1;
+#X msg 33 238 decay \$1;
+#X msg 125 533 excursion \$1;
+#X obj 33 547 outlet;
+#X obj 33 48 r predelay;
+#X obj 33 105 r bandwidth;
+#X obj 33 159 r damping;
+#X obj 33 213 r decay;
+#X obj 58 268 r input_diffusion1;
+#X obj 70 322 r input_diffusion2;
+#X obj 78 383 r decay_diffusion1;
+#X obj 87 442 r decay_diffusion2;
+#X obj 125 503 r excursion;
+#X connect 0 0 9 0;
+#X connect 1 0 9 0;
+#X connect 2 0 9 0;
+#X connect 3 0 9 0;
+#X connect 4 0 9 0;
+#X connect 5 0 9 0;
+#X connect 6 0 9 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 0;
+#X connect 10 0 4 0;
+#X connect 11 0 5 0;
+#X connect 12 0 6 0;
+#X connect 13 0 7 0;
+#X connect 14 0 0 0;
+#X connect 15 0 1 0;
+#X connect 16 0 2 0;
+#X connect 17 0 3 0;
+#X connect 18 0 8 0;
+#X restore 230 33 pd receive_params;
+#X obj 251 100 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 2540 1;
+#X msg 248 119 dry \$1;
+#X obj 79 156 e_platereverb somename;
+#X obj 248 54 loadbang;
+#X msg 273 155 save;
+#X obj 230 198 u_cocollect;
+#X msg 229 222 dry 0.314252 \, decay_diffusion2 0.5 \, decay_diffusion1
+0.7 \, input_diffusion2 0.625 \, excursion 0.53761 \, input_diffusion1
+0.75 \, decay 0.5 \, damping 22050 \, bandwidth 22050 \, predelay 0
+\,;
+#X obj 273 175 t a b;
+#X obj 78 98 *~ 0.5;
+#X obj 78 75 hip~ 500;
+#X obj 497 40 loadbang;
+#X msg 248 75 0.2;
+#X connect 0 0 16 0;
+#X connect 4 0 3 0;
+#X connect 6 0 9 2;
+#X connect 7 0 8 0;
+#X connect 8 0 9 2;
+#X connect 9 0 1 0;
+#X connect 9 1 2 0;
+#X connect 9 2 12 0;
+#X connect 10 0 18 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 14 0 9 2;
+#X connect 14 1 12 1;
+#X connect 15 0 9 0;
+#X connect 16 0 15 0;
+#X connect 17 0 4 0;
+#X connect 18 0 7 0;

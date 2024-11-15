@@ -1,0 +1,4 @@
+#N canvas 0 238 834 613 10;
+#X obj 38 78 u_samplebank2 \$1-decending ../samples/decending.wav;
+#X obj 38 98 u_samplebank2 \$1-hornspad ../samples/hornspad.wav;
+#X obj 38 123 u_samplebank2 \$1-strings ../samples/strings.wav;

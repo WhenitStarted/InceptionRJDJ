@@ -1,0 +1,15 @@
+#N canvas 187 265 758 256 10;
+#X obj 68 36 r \$1-CONTROLLER-architect_out;
+#X obj 68 57 sel scene_active;
+#X obj 177 77 sel scene_idle;
+#X obj 416 117 sel scene_eject_end;
+#X obj 272 97 sel scene_eject_start;
+#X obj 416 167 s #rjdj_detector_out;
+#X text 568 148 resets quiet threshold;
+#X msg 416 147 quiet_threshold 45 2;
+#X connect 0 0 1 0;
+#X connect 1 1 2 0;
+#X connect 2 1 4 0;
+#X connect 3 0 7 0;
+#X connect 4 1 3 0;
+#X connect 7 0 5 0;

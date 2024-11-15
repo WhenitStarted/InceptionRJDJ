@@ -1,0 +1,11 @@
+#N canvas 0 22 506 286 10;
+#X obj 38 85 u_samplebank2 \$1-sample2 ../samples/piano.wav;
+#X obj 38 105 u_samplebank2 \$1-sample3 ../samples/shimmer.wav;
+#X obj 38 145 u_samplebank2 \$1-sample5 ../samples/train.wav;
+#X obj 38 165 u_samplebank2 \$1-sample6 ../samples/wavesstart.wav;
+#X obj 39 127 u_samplebank2 \$1-sample4 ../samples/strings.wav;
+#X obj 38 64 u_samplebank2 \$1-sample1 ../samples/melbrassmenacing.wav
+;
+#X obj 38 185 u_samplebank2 \$1-sample7 ../samples/ambientloop.wav
+;
+#X obj 38 205 u_samplebank2 \$1-sample8 ../samples/guitar.wav;

@@ -1,0 +1,65 @@
+#N canvas 171 64 331 125 10;
+#X obj 25 48 r #rjdj_architect_in;
+#N canvas 8 29 640 812 APP_EJECT 0;
+#X obj 34 36 inlet architect_in;
+#X text 235 327 app is sent 'scene_eject_end' after fading out;
+#X obj 80 327 s #rjdj_architect_out;
+#X obj 112 227 s \$1-IO-mainmix_vol;
+#X text 256 105 SCENE_EJECT;
+#X text 256 227 fade down main mix;
+#X msg 80 297 symbol scene_eject_end;
+#X text 242 297 send 'scene_eject_end' to app;
+#X obj 80 149 sel scene_eject_start;
+#X text 238 149 when scene receives 'scene_eject_start' from app;
+#X obj 80 177 t b b;
+#X text 259 389 SCENE_IDLE;
+#X obj 57 519 s \$1-IO-mainmix_vol;
+#X obj 57 447 sel scene_idle;
+#X text 201 519 dip main mix volume;
+#X text 170 447 when scene receives 'scene_idle' from app;
+#X text 62 549 the scene will now wait for the app to send 'scene_eject_start'
+;
+#X text 168 403 (when app starts progress bar to leave scene);
+#X text 192 119 (app prepares scene to be shut down);
+#X text 119 489 level to dip volume to;
+#X msg 57 489 0.3 0.2;
+#X obj 80 267 del 2000;
+#X text 147 267 wait 2 seconds;
+#X msg 112 207 0 0.5;
+#X obj 34 57 t a a a;
+#X text 187 26 Interaction with native app. Only quits with higher
+priority scenes. Can be cancelled if infinity_on selected.;
+#X obj 34 739 s \$1-IO-mainmix_vol;
+#X text 210 633 if infinity_on selected;
+#X text 251 619 SCENE_ACTIVE;
+#X obj 34 677 sel scene_active;
+#X text 157 677 when scene receives 'scene_active' from app;
+#X msg 34 709 1 2;
+#X text 178 739 fade up main mix volume;
+#X text 68 709 500 ms;
+#X text 96 368 ------------------------------------------------------------
+;
+#X text 96 598 ------------------------------------------------------------
+;
+#X text 96 778 ------------------------------------------------------------
+;
+#X text 96 78 ------------------------------------------------------------
+;
+#X connect 0 0 24 0;
+#X connect 6 0 2 0;
+#X connect 8 0 10 0;
+#X connect 10 0 21 0;
+#X connect 10 1 23 0;
+#X connect 13 0 20 0;
+#X connect 20 0 12 0;
+#X connect 21 0 6 0;
+#X connect 23 0 3 0;
+#X connect 24 0 29 0;
+#X connect 24 1 13 0;
+#X connect 24 2 8 0;
+#X connect 29 0 31 0;
+#X connect 31 0 26 0;
+#X restore 25 78 pd APP_EJECT;
+#X text 58 25 APP EJECTS;
+#X text 117 78 active/idle/eject process;
+#X connect 0 0 1 0;

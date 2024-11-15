@@ -1,0 +1,7 @@
+#N canvas 305 396 407 159 10;
+#X obj 68 36 inlet;
+#X text 220 57 lowers quiet threshold;
+#X obj 68 76 s #rjdj_detector_out;
+#X msg 68 56 quiet_threshold 50 4;
+#X connect 0 0 3 0;
+#X connect 3 0 2 0;
